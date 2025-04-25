@@ -5,15 +5,15 @@ const array = [1, 2, 3, 4, 5];
 // ForEach Loop Signature needs to be understand - No return value, function input, value and index. 
 // Call the function for every value
 
-// if(!Array.prototype.myForEach) {
-//     Array.prototype.myForEach = function(userFn) {
-//         const originalArray = this; // this is pointing to the current to current Object
-//         for(let i = 0; i < originalArray.length; i++) {
-//             userFn(originalArray[i], i);
-//         }
-//     }
+if(!Array.prototype.myForEach) {
+    Array.prototype.myForEach = function(userFn) {
+        const originalArray = this; // this is pointing to the current to current Object
+        for(let i = 0; i < originalArray.length; i++) {
+            userFn(originalArray[i], i);
+        }
+    }
 
-// }
+}
 // array.myForEach(function(value, index){
 //     console.log(`myForEach Value at index ${index} is ${value}`);
 // })
@@ -21,38 +21,38 @@ const array = [1, 2, 3, 4, 5];
 
 // .Map Signature needs to be understand - Return new array, each element itrate, userFn
 
-// if(!Array.prototype.myMap) {
-//     Array.prototype.myMap = function(userFn) {
-//         const originalArray = this
-//         const result = [];
+if(!Array.prototype.myMap) {
+    Array.prototype.myMap = function(userFn) {
+        const originalArray = this
+        const result = [];
 
-//         for(let i = 0; i < originalArray.length; i++) {
-//             const value = userFn(originalArray[i], i);
-//             result.push(value);
-//         }
-//         return result;
-//     }
-// }
+        for(let i = 0; i < originalArray.length; i++) {
+            const value = userFn(originalArray[i], i);
+            result.push(value);
+        }
+        return result;
+    }
+}
 
 // const res = array.myMap((e) => e * 3);
 // console.log(res);
 
 // .Filter Signature needs to be understand - Return new array, each element itrate, userFn
 
-// if(!Array.prototype.myFilter) {
-//     Array.prototype.myFilter = function(userFn) {
-//         const originalArray = this;
-//         const result = [];
+if(!Array.prototype.myFilter) {
+    Array.prototype.myFilter = function(userFn) {
+        const originalArray = this;
+        const result = [];
 
-//         for(let i = 0; i < originalArray.length; i++) {
-//             const value = userFn(originalArray[i], i);
-//             if(value) {
-//                 result.push(originalArray[i]);
-//             }
-//         }
-//         return result;
-//     }
-// }
+        for(let i = 0; i < originalArray.length; i++) {
+            const value = userFn(originalArray[i], i);
+            if(value) {
+                result.push(originalArray[i]);
+            }
+        }
+        return result;
+    }
+}
 
 //const res2 = array.myFilter((e) => e > 3);
 
@@ -74,3 +74,28 @@ if(!Array.prototype.myReduce) {
         }
     }
 }
+
+
+// Debouncing Function
+
+Function.prototype.debounce = function(delay) {
+    let timer;
+    const fn = this;
+
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.apply(this, args);
+        },delay)
+    }
+}
+
+const sayHello = (name) => {
+    console.log(`Hello ${name}`);
+}
+
+const deboundedSay = sayHello.debounce(1000);
+
+console.log(deboundedSay("Ved"));
+console.log(deboundedSay("Prakash"));
+console.log(deboundedSay("Poddar"));
