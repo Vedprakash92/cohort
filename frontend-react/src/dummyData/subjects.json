@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+      "subject": "Mathematics",
+      "description": "Mathematics is the study of numbers, shapes, and patterns. It includes topics like algebra, geometry, and calculus."
+    },
+    {
+      "id": 2,
+      "subject": "Physics",
+      "description": "Physics explores the fundamental nature of the universe, including motion, energy, force, and matter."
+    },
+    {
+      "id": 3,
+      "subject": "Chemistry",
+      "description": "Chemistry focuses on the composition, properties, and reactions of substances and materials."
+    },
+    {
+      "id": 4,
+      "subject": "Biology",
+      "description": "Biology is the study of living organisms, covering topics like genetics, evolution, and cellular processes."
+    },
+    {
+      "id": 5,
+      "subject": "History",
+      "description": "History examines past events, societies, and civilizations to understand how they shape the present and future."
+    }
+]
+  
